@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css');
+@import url('https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css');
 
 :root{
     /* Palette */
@@ -279,9 +281,18 @@ header{
     font-weight: 700;
 }
 
-.slider__items{
-    display: flex;
-    gap: var(--spacing-24);
+.carousel__arrow{
+    color: var(--dark-bg-solid);
+    font-size: var(--font-small);
+    font-weight: 700;
+}
+
+.glide__arrow--left{
+    left: 0;
+}
+
+.glide__arrow--right{
+    right: 0;
 }
 
 .card-item__cover{
@@ -499,13 +510,13 @@ footer{
     gap: var(--spacing-20)
 }
 
-.funko__quantity-input{
+.funko__quantity--input{
     width: var(--spacing-68);
     border: 0.5px solid;
     border-color: #c9c9c9;
 }
 
-.funko__quantity-cart{
+.funko__quantity--add{
     background-color: var(--primary-solid);
     color: var(--light-font-solid);
     font-size: var(--font-medium);
@@ -517,17 +528,6 @@ footer{
     color: var(--secondary-solid);
     font-size: var(--font-xsmall);
     font-weight: 700;
-}
-
-.other-products{
-    margin: var(--spacing-36) auto;
-}
-
-.other-products__title{
-    font-family: var(--alternative-font);
-    font-size: var(--font-display);
-    font-weight: 700;
-    margin-bottom: var(--spacing-36);
 }
 
 /* CART */
