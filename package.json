@@ -2,17 +2,19 @@
   "name": "cac-challenge-g5",
   "version": "1.0.0",
   "description": "CaC Proyecto integrador Funko Pop Grupo 5",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
     "method-override": "^3.0.0"
   },
   "devDependencies": {
