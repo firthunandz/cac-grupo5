@@ -1,8 +1,8 @@
 const shopController = {
-    shop: (req, res) => res.send('Shop'),
-    item: (req, res) => res.send('Item'),
+    shop: (req, res) => res.render('shop'),
+    item: (req, res) => res.render('item'),
     itemAdd: (req, res) => res.send('Item Add'),
-    cart: (req, res) => res.send('Cart')
+    cart: (req, res) => res.render('carrito')
 };
 
 module.exports = shopController;

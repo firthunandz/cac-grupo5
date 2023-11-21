@@ -426,9 +426,19 @@ footer{
     grid-column: 2/3;
 }
 
+.shop-list__ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-list__items{
+    display: flex;
+}
+
 /* PAGINATION */
 
 .pagination{
+    margin-top: var(--spacing-36);
     margin-bottom: var(--spacing-36);
 }
 

@@ -1,0 +1,25 @@
+<%- contentFor('body') %>
+<!-- MAIN -->
+<main class="funko-item container">
+    <section class="funko">
+        <picture class="funko__cover">
+            <img class="funko__cover--front" src="./multimedia/star-wars/baby-yoda-1.webp" alt="Funko Baby Yoda">
+            <img class="funko__cover--back" src="./multimedia/star-wars/baby-yoda-box.webp" alt="Funko Baby Yoda Box">
+        </picture>
+        <article class="funko__content">
+            <p class="funko__licence">STAR WARS</p>
+            <h3 class="funko__title">BABY YODA BLUEBALL</h3>
+            <p class="funko__description">Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.</p>
+            <p class="funko__price">$ 1799,99</p>
+            <div class="funko__quantity">
+                <button id="subtract" class="funko__quantity--button" type="button">-</button>
+                <input class="funko__quantity--input" type="text" name="quantity" id="quantity" placeholder="0">
+                <button id="add" class="funko__quantity--button" type="button">+</button>
+                <button class="funko__quantity--add" type="submit">Agregar al Carrito</button>
+            </div>
+            <p class="funko__promo"><u>Ver métodos de pago</u> - 3 CUOTAS SIN INTERÉS</p>
+        </article>
+    </section>
+<!-- PRODUCTOS RELACIONADOS -->
+    <%- include('partials/tienda/slider') %>
+</main>

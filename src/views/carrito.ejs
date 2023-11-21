@@ -1,0 +1,79 @@
+<%- contentFor('body') %>
+<!-- CARRITO -->
+<main class="cart container">
+    <h1 class="cart__title">CARRITO DE COMPRAS</h1>
+    <section class="cart__header">
+        <p class="cart__header--text">DETALLE DEL PRODUCTO</p>
+        <p class="cart__header--text">CANTIDAD</p>
+        <p class="cart__header--text">TOTAL</p>
+    </section>
+    
+    <section class="cart__content"> 
+        <article class="cart__item">
+            <picture class="cart__cover">
+                <img src="./multimedia/star-wars/baby-yoda-1.webp" alt="Funko Baby Yoda">
+            </picture>
+            <div class="cart__info">
+                <h2 class="cart__name">BABY YODA BLUEBALL</h2>
+                <p class="cart__licence">STAR WARS</p>
+                <p class="cart__price">precio: $ 1799,99</p>
+            </div>
+        </article>
+        <article class="cart__quantity">
+            <input class="cart__input" type="number">
+        </article>
+        <article class="cart__totalprices">
+            <p class="cart__totalprice">$ 3599,98</p>
+        </article>
+        <article class="cart__delete">
+            <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+        </article>
+    </section>
+
+    <section class="cart__content"> 
+        <article class="cart__item">
+            <picture class="cart__cover">
+                <img src="./multimedia/pokemon/pidgeotto-1.webp" alt="Funko Pidgeotto">
+            </picture>
+            <div class="cart__info">
+                <h2 class="cart__name">PIDGEOTTO</h2>
+                <p class="cart__licence">POKEMON</p>
+                <p class="cart__price">precio: $ 1799,99</p>
+            </div>
+        </article>
+        <article class="cart__quantity">
+            <input class="cart__input" type="number">
+        </article>
+        <article class="cart__totalprices">
+            <p class="cart__totalprice">$ 1799,99</p>
+        </article>
+        <article class="cart__delete">
+            <iconify-icon icon="tabler:xbox-x"></iconify-icon>
+        </article>
+    </section>
+    <!-- RESUMEN -->
+    <section class="cart__resume">
+        <h2 class="resume__title">RESUMEN</h2>
+        <article class="resume__items">
+            <div class="resume__item">
+                <p class="resume__text">CANTIDAD DE ELEMENTOS</p>
+                <p class="resume__number">3</p>
+            </div>
+            <div class="resume__item">
+                <p class="resume__text">SUBTOTAL</p>
+                <p class="resume__number">$ 5.399,97</p>
+            </div>
+            <div class="resume__item">
+                <p class="resume__text">ENVÍO</p>
+                <p class="resume__number">$ 0,00</p>
+            </div>
+            <div class="resume__total">
+                <p class="resume__total--text">TOTAL</p>
+                <p class="resume__total--number">$ 5.399,97</p>
+            </div>
+            <a class="resume__link" href="#">
+                IR A PAGAR
+            </a>
+        </article>
+    </section>
+</main>
