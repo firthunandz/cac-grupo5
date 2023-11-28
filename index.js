@@ -32,7 +32,7 @@ const authRoutes = require("./src/routes/auth/authRoutes");
 
 app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
-app.use("/admin", productRoutes);
+app.use("/admin/productos", productRoutes);
 app.use("/admin", authRoutes);
 
 // ERROR 404
