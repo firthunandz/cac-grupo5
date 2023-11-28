@@ -1,6 +1,6 @@
 const authController = {
-    login: (req, res) => res.send("Login"),
-    register: (req, res) => res.send("Register"),
+    login: (req, res) => res.render("login"),
+    register: (req, res) => res.render("register"),
 };
 
 module.exports = authController;

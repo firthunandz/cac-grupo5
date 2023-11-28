@@ -1,0 +1,40 @@
+<%- contentFor('body') %>
+    <!-- MAIN CREATE ITEM -->
+    <section>
+        <form class="create container">
+            <h2 class="form__title">CREAR NUEVO ITEM</h2>
+            <article class="create__item">            
+                <p class="create__item--text">Categoría:</p>
+                <input class="create__item--input" type="text" placeholder="Seleccionar">
+                <p class="create__item-text">Licencia:</p>
+                <input class="create__item--input" type="text" placeholder="Seleccionar">
+            </article>
+            <article class="create__item">            
+                <p class="form__text">Nombre del producto:</p>
+                <input class="form__input" type="text" placeholder="Kakashi Hatake Shippuden Saga">
+            </article>
+            <textarea class="create__textarea" name="textarea" placeholder="Descripción del producto">            </textarea>
+            <article class="create__item">
+                <p class="form__text">SKU:</p>
+                <input class="form__input" type="text" placeholder="SSK111AB001">
+                <p class="form__text">Precio:</p>
+                <input class="form__input" type="number" placeholder="$ 0.000,00">
+                <p class="form__text">Stock:</p>
+                <input class="form__input" type="number" placeholder="0">
+            </article>
+            <article class="create__item">            
+                <p class="form__text">Descuento:</p>
+                <input class="form__input" type="number" placeholder="0%">
+                <p class="form__text">Cuotas:</p>
+                <input class="create__item--input" type="text" placeholder="3 Cuotas sin interés">
+            </article>
+            <article class="create__item">
+                <p class="form__text">Imágenes:</p>
+                <input type="file" placeholder="Elegir archivos">
+            </article>
+            <article class="create__item">
+                <a class="form__button" href="#">Agregar Producto</a>
+                <a class="form__button" href="#">Limpiar</a>
+            </article>
+        </form>
+    </section>
