@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 // Requerir Path
 const path = require('path');
 
@@ -23,7 +25,7 @@ const productController = {
         }
     },
     create: (req, res) => res.render("create"),
-    store: (req, res) => {
+    store: async (req, res) => {
         console.log(req.body, req.file);
 
         // Validar las reglas
@@ -35,16 +37,110 @@ const productController = {
             });
         }
 
-        if(req.file){
-            sharp(req.file.buffer)
-                .resize()
-                .toFile(path.resolve(__dirname, '../../../public/uploads/image.jpg'))
-        }
-        res.send('Crear producto');
-    },
-    edit: (req, res) => res.render("edit"),
-    destroy: (req, res) => res.send("Producto borrado")
-};
+        try {
+            const producto = await model.create(req.body);
+            console.log(producto);
 
+            // Subir la imagen solo si el producto esta creado.
+            if(producto && req.file){
+                sharp(req.file.buffer)
+                    .resize()
+                    .toFile(path.resolve(
+                        __dirname,
+                        `../../../public/uploads/productos/producto_${producto.id}.jpg`
+                        )
+                    );
+            }
+
+            //redireccionar a la lista de productos
+            res.redirect('/admin/productos')
+
+        } catch (error) {
+            console.log(error);
+            res.status(500).send(error);
+        }
+    },
+    edit: async (req, res) => {
+        try {
+            const producto = await model.findByPk(req.params.id);
+
+            if(producto){
+                res.render("edit", {values: producto});
+            } else {
+                res.status(404).send('El producto no existe');
+            }
+
+        } catch (error) {
+            console.log(error);
+            res.status(500).send(error);
+        }
+    },
+    update: async (req, res) => {
+        console.log(req.params, req.body);
+
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            return res.render('edit', {
+                values: req.body,
+                errors: errors.array()
+            });
+        }
+
+        try {
+            const affected = await model.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            if (affected[0] == 1){
+                if(producto && req.file){
+                    sharp(req.file.buffer)
+                        .resize()
+                        .toFile(path.resolve(
+                            __dirname,
+                            `../../../public/uploads/productos/producto_${req.params.id}.jpg`
+                            )
+                        );
+                }
+
+            res.redirect('admin');
+
+            } else {
+                res.status(500).send('Error al actualizar el producto');
+            }
+
+        } catch (error) {
+            console.log(error);
+            res.status(500).send(error);
+        }
+    },
+    destroy: async (req, res) => {
+        try {
+            const result = await model.destroy({
+                where: {
+                    id: req.params.id,
+                }
+            });
+            console.log(result);
+
+            if(result == 1){
+                fs.unlink(path.resolve(
+                    __dirname,
+                    `../../../public/uploads/productos/producto_${req.params.id}.jpg`)
+                ),
+                (error) => {
+                    if(error){
+                        console.log(error);
+                    }
+                }
+            }
+            res.redirect('admin');
+        } catch (error) {
+            console.log(error);
+            res.status(500).send(error);
+        }
+    }
+};
 // Exportar modulo controlador de productos
 module.exports = productController;

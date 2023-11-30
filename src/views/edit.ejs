@@ -4,40 +4,45 @@
         <form class="create container">
             <h2 class="form__title">CREAR NUEVO ITEM</h2>
             <article class="create__item">            
-                <p class="create__item--text">Categoría:</p>
-                <input class="create__item--input" type="text" placeholder="Seleccionar">
-                <p class="create__item-text">Licencia:</p>
-                <input class="create__item--input" type="text" placeholder="Seleccionar">
+                <label for="categoria" class="create__item--text">Categoría:</label>
+                <input class="create__item--input" type="text" id="categoria" name="categoria" placeholder="Seleccionar">
+                <label for="licencia" class="create__item--text">Licencia:</label>
+                <input class="create__item--input" type="text" id="licencia" name="licencia" placeholder="Seleccionar">
             </article>
             <article class="create__item">            
-                <p class="form__text">Nombre del producto:</p>
-                <input class="form__input" type="text" placeholder="Kakashi Hatake Shippuden Saga">
+                <label for="nombre" class="form__text">Nombre del producto:</label>
+                <input class="form__input" type="text" id="nombre" name="nombre" required placeholder="Kakashi Hatake Shippuden Saga"
+                value="<%= typeof values != 'undefined' ? values.nombre : '' %>"
+                />
             </article>
-            <textarea class="create__textarea" name="textarea" placeholder="Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori."></textarea>
+            <textarea class="create__textarea" name="textarea" placeholder="Descripción del producto"></textarea>
             <article class="create__item">
-                <p class="form__text">SKU:</p>
-                <input class="form__input" type="text" placeholder="NAR001012">
-                <p class="form__text">Precio:</p>
-                <input class="form__input" type="number" placeholder="$ 1.799,00">
-                <p class="form__text">Stock:</p>
-                <input class="form__input" type="number" placeholder="10">
+                <label for="sku" class="form__text">SKU:</label>
+                <input class="form__input" type="text" id="sku" name="sku" placeholder="SSK111AB001"
+                value="<%= typeof values != 'undefined' ? values.sku : '' %>"
+                />
+                <label for="precio" class="form__text">Precio:</label>
+                <input class="form__input" type="number" id="precio" name="precio" placeholder="$ 0.000,00"
+                value="<%= typeof values != 'undefined' ? values.precio : '' %>"
+                />
+                <label for="stock" class="form__text">Stock:</label>
+                <input class="form__input" type="number" id="stock" name="stock" placeholder="0"
+                value="<%= typeof values != 'undefined' ? values.stock : '' %>"
+                />
             </article>
             <article class="create__item">            
-                <p class="form__text">Descuento:</p>
-                <input class="form__input" type="number" placeholder="10%">
-                <p class="form__text">Cuotas:</p>
-                <input class="create__item--input" type="text" placeholder="6 Cuotas sin interés">
+                <label class="form__text">Descuento:</label>
+                <input class="form__input" type="number" placeholder="0%">
+                <label class="form__text">Cuotas:</label>
+                <input class="create__item--input" type="text" placeholder="3 Cuotas sin interés">
             </article>
             <article class="create__item">
-                <p class="form__text">Imágenes:</p>
-                <input type="file" placeholder="Elegir archivos">
+                <label for="imagen" class="form__text">Imágenes:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" placeholder="Elegir archivos">
             </article>
             <article class="create__item">
-                <img class="create__selected--img" src="./multimedia/star-wars/luke-1.webp" alt="Funko Luke S.">
-                <img class="create__selected--img" src="./multimedia/star-wars/luke-box.webp" alt="Box Funko Luke S.">
-            </article>
-            <article class="create__item">
-                <a class="form__button" href="#">Modificar Producto</a>
+                <button type="submit" class="form__button" href="#">Agregar Producto</button>
+                <a class="form__button" href="#">Limpiar</a>
             </article>
         </form>
     </section>

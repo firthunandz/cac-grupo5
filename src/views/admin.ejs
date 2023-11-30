@@ -31,10 +31,29 @@
                 <td class="table__code"><%= producto.code %></td>
                 <td class="table__name"><%= producto.name %></td>
                 <td class="table__licence"><%= producto.licence %></td>
-                <td class="table__edit"><img src="./public/multimedia/icons/edit_pencil.svg" alt="Edit icon"></td>
-                <td class="table__delete"><img src="./public/multimedia/icons/delete_trash.svg" alt="Trash icon"></td>
+                <td class="table__edit"><a href="admin/productos/edit/<%= producto.id %>"><img src="./public/multimedia/icons/edit_pencil.svg" alt="Edit icon"></a></td>
+                <td class="table__delete">
+                    <form class="form-delete" action="/admin/productos/<%= producto.id %>?_method=DELETE" method="post">
+                        <button type="submit">
+                            <img src="./public/multimedia/icons/delete_trash.svg" alt="Trash icon">
+                        </button>
+                    </form>
+                </td>
             </tr>
             <% }) %>
         </tbody>
     </table>
 </main>
+
+<script>
+    document.addEventListener('click', (event) => {
+        if(event.target.closest('form').classList.contains('form-delete')) {
+            event.preventDefault();
+            const borrar = confirm('Esta seguro?');
+
+            if(borrar){
+                event.target.closest('form').submit();
+            }
+        }
+    });
+</script>
