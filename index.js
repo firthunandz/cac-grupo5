@@ -1,4 +1,7 @@
 // index.js = LOGICA DE CREACION DEL SERVIDOR WEB
+// REQUERIR DOTENV
+require('dotenv').config();
+
 // REQUERIR EXPRESS
 const express = require("express");
 const app = express();
@@ -43,7 +46,7 @@ app.use((req, res, next) => {
 });
 
 // PUERTO Y CONEXION BASE DE DATOS
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
     try {
         await sequelize.authenticate();

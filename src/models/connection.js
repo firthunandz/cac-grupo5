@@ -2,12 +2,12 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
-    'firthunandz_cac23573_g1', //nombre BD
-    '337747_usuario',          //usuario
-    'cac23753',                //password
+    process.env.DB_NAME, //nombre BD
+    process.env.DB_USER, //usuario
+    process.env.DB_PASS, //password
     {
-        host: 'mysql-firthunandz.alwaysdata.net',  //host
-        dialect: 'mysql',                         //dialecto
+        host: process.env.DB_HOST,  //host
+        dialect: 'mysql',           //dialecto
     }
 );
 

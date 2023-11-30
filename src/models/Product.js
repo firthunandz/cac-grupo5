@@ -4,7 +4,7 @@ const {DataTypes} = require('sequelize');
 const sequelize = require('./connection');
 
 // Definir un elemento (producto)
-const Producto = sequelize.define('Producto', {
+const Product = sequelize.define('Product', {
     nombre: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -17,8 +17,9 @@ const Producto = sequelize.define('Producto', {
 
 // Sincronizacion, crear la tabla si no existe
 (async() => {
-    await sequelize.sync({force: true}); 
+    //await sequelize.sync({force: true}); 
+    await sequelize.sync(); 
 })();
 
 // Exportar modulo
-module.exports = Producto;
+module.exports = Product;
