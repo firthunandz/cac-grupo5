@@ -7,6 +7,8 @@ const sharp = require('sharp');
 // Requerir express-validator
 const {validationResult} = require('express-validator');
 
+// Requerir modelo Producto
+const model = require('../../models/Producto');
 
 const productController = {
     admin: (req, res) => res.render("admin", { layout: 'layouts/adminLayout'}),
