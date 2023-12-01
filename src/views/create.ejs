@@ -1,5 +1,6 @@
 <%- contentFor('body') %>
     <!-- MAIN CREATE ITEM -->
+
     <% if (typeof errors != 'undefined') { %>
         <ul>
             <% errors.forEach(error => { %>
@@ -7,7 +8,6 @@
             <% }) %>
         </ul>
     <% } %>
-
 
 <section>
     <form action="/admin/productos" method="post" enctype="multipart/form-data" class="create container">
@@ -40,10 +40,10 @@
             />
         </article>
         <article class="create__item">            
-            <label class="form__text">Descuento:</label>
-            <input class="form__input" type="number" placeholder="0%">
-            <label class="form__text">Cuotas:</label>
-            <input class="create__item--input" type="text" placeholder="3 Cuotas sin interés">
+            <label id="descuento" name="descuento" class="form__text">Descuento:</label>
+            <input for="descuento" class="form__input" type="number" placeholder="0%">
+            <label id="cuotas" name="cuotas" class="form__text">Cuotas:</label>
+            <input for="cuotas" class="create__item--input" type="text" placeholder="3 Cuotas sin interés">
         </article>
         <article class="create__item">
             <label for="imagen" class="form__text">Imágenes:</label>

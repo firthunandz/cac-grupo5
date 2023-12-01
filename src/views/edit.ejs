@@ -31,17 +31,17 @@
                 />
             </article>
             <article class="create__item">            
-                <label class="form__text">Descuento:</label>
-                <input class="form__input" type="number" placeholder="0%">
-                <label class="form__text">Cuotas:</label>
-                <input class="create__item--input" type="text" placeholder="3 Cuotas sin interés">
+                <label for="descuento" class="form__text">Descuento:</label>
+                <input id="descuento" name="descuento" class="form__input" type="number" placeholder="0%">
+                <label for="cuotas" class="form__text">Cuotas:</label>
+                <input id="cuotas" name="cuotas" class="create__item--input" type="text" placeholder="3 Cuotas sin interés">
             </article>
             <article class="create__item">
                 <label for="imagen" class="form__text">Imágenes:</label>
                 <input type="file" id="imagen" name="imagen" accept="image/*" placeholder="Elegir archivos">
             </article>
             <article class="create__item">
-                <button type="submit" class="form__button" href="#">Agregar Producto</button>
+                <button type="submit" class="form__button">Agregar Producto</button>
                 <a class="form__button" href="#">Limpiar</a>
             </article>
         </form>

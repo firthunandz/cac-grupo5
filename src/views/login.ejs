@@ -4,18 +4,18 @@
             <form class="form">
                 <h1 class="form__title">INGRESAR A MI CUENTA</h1>
                 <article class="form__item1">                    
-                    <p class="form__text">Email:</p>
+                    <label class="form__text">Email:</label>
                     <input class="form__input" type="email">
                 </article>
                 <article class="form__item2">
-                    <p class="form__text">Contraseña:</p>
+                    <label class="form__text">Contraseña:</label>
                     <input class="form__input" type="password">
                 </article>
                 <article class="form__item3">                    
-                    <a class="form__button" href="#">Ingresar</a>
+                    <button type="submit" class="form__button">Ingresar</button>
                     <div class="form__subitem">                        
-                        <input class="form__checkbox" type="checkbox">
-                        <p class="form__remindme">Recordarme</p>
+                        <input id="recordarme" name="recordarme" class="form__checkbox" type="checkbox">
+                        <label for="recordarme" class="form__remindme">Recordarme</label>
                     </div>
                 </article>
                 <a class="form__forgotpw" href="#">Olvidé mi contraseña</a>

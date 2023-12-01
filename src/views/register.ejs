@@ -1,35 +1,44 @@
 <%- contentFor('body') %>
+
+<% if (typeof errors != 'undefined') { %>
+    <ul>
+        <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+        <% }) %>
+    </ul>
+<% } %>
+
     <!-- REGISTER FORM -->
     <main class="container">        
         <form class="form">
-        <h1 class="form__title">CREA TU CUENTA</h1>
-        <h2 class="form__subtitle">Completa el formulario para ser parte del mundo de los Funkos</h2>
-        <article class="form__item1">            
-            <p class="form__text">Nombre:</p>
-            <input class="form__input" type="text">
-        </article>
-        <article class="form__item1">            
-            <p class="form__text">Apellido:</p>
-            <input class="form__input" type="text">
-        </article>
-        <article class="form__item1">
-            <p class="form__text">Email:</p>
-            <input class="form__input" type="email">
-        </article>
-        <article class="form__item1">            
-            <p class="form__text">Contraseña:</p>
-            <input class="form__input" type="password">
-        </article>
-        <article class="form__item2">
-            <p class="form__text">Repita Contraseña:</p>
-            <input class="form__input" type="password">
-        </article>
-        <article class="form__item3">            
-            <a class="form__button" href="#">Registrar</a>
-            <div class="form__subitem">
-                <input type="checkbox">
-                <p><span class="form__terms acept">Acepto</span> <span class="form__terms terms">Términos y Condiciones</span></p>
-            </div>
-        </article>
+            <h1 class="form__title">CREA TU CUENTA</h1>
+            <h2 class="form__subtitle">Completa el formulario para ser parte del mundo de los Funkos</h2>
+            <article class="form__item1">            
+                <label for="nombre" class="form__text">Nombre:</label>
+                <input class="form__input" type="text" id="nombre" name="nombre" />
+            </article>
+            <article class="form__item1">
+                <label for="apellido" class="form__text">Apellido:</label>
+                <input class="form__input" type="text" id="apellido" name="apellido" />
+            </article>
+            <article class="form__item1">
+                <label for="email" class="form__text">Email:</label>
+                <input class="form__input" type="email" id="email" name="email" value="<%= typeof values != 'undefined' ? values.email : '' %>" />
+            </article>
+            <article class="form__item1">
+                <label for="password" class="form__text">Contraseña:</label>
+                <input class="form__input" type="password" id="password" name="password" />
+            </article>
+            <article class="form__item2">
+                <label for="password_confirm" class="form__text">Repita Contraseña:</label>
+                <input class="form__input" type="password" id="password_confirm" name="password_confirm" />
+            </article>
+            <article class="form__item3">
+                <button type="submit" class="form__button">Registrar</button>
+                <div class="form__subitem">
+                    <input id="aceptartyc" name="aceptartyc" type="checkbox">
+                    <label for="aceptartyc"><span class="form__terms acept">Acepto</span> <span class="form__terms terms">Términos y Condiciones</span></label>
+                </div>
+            </article>
         </form>
     </main>
