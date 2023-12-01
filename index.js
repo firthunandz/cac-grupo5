@@ -7,12 +7,40 @@ const express = require("express");
 const app = express();
 // REQUERIR PATH
 const path = require('path');
-// REQUERIR METHOD Y EJSLAYOUTS
+// REQUERIR METHOD
 const methodOverride = require("method-override");
+// REQUERIR EJS-LAYOUTS
 const expressLayouts = require('express-ejs-layouts');
-
 // REQUERIR SEQUELIZE
 const sequelize = require('./src/models/connection');
+// REQUERIR EXPRESS-SESSION
+//const session = require('express-session');
+// REQUERIR COOKIE-SESSION
+const session = require('cookie-session')
+
+// USAR SESSION (express-session)
+//app.use(
+//    session({
+//        secret: "S3cr3t01",
+//        resave: false,
+//        saveUninitialized: false
+//    })
+//);
+
+// USAR COOKIE-SESSION
+app.use(
+    session({
+        keys: ["S3cr3t01", "S3cr3t02"],
+    })
+);
+
+// CHEQUEAR SI LA SESION ESTA INICIADA
+const isLogin = (req, res, next) => {
+    if(!req.session.userId){
+        return res.redirect('/login');
+    }
+    next();
+}
 
 // PUBLIC FILES
 app.use(express.static(path.join(__dirname, "/public")));
@@ -37,7 +65,7 @@ const { log } = require("console");
 
 app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
-app.use("/admin/productos", productRoutes);
+app.use("/admin/productos", isLogin, productRoutes);
 app.use("/admin", authRoutes);
 
 // ERROR 404

@@ -37,7 +37,8 @@ const authController = {
                     errors: [{msg: 'El correo y/o contraseña son incorrectos'}]
                 })
             } else {
-                res.send('login');
+                req.session.userId = user.id;
+                res.redirect('/');
             }
         } catch (error) {
             console.log(error);
@@ -65,7 +66,10 @@ const authController = {
         }
 
     },
-    logout: (req, res) => res.render("register"),
+    logout: (req, res) => {
+        req.session = null;
+        res.redirect('/');
+    },
 };
 
 // Exportar modulo
