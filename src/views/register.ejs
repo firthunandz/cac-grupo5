@@ -23,15 +23,15 @@
             </article>
             <article class="form__item1">
                 <label for="email" class="form__text">Email:</label>
-                <input class="form__input" type="email" id="email" name="email" value="<%= typeof values != 'undefined' ? values.email : '' %>" />
+                <input class="form__input" type="email" id="email" name="email" required value="<%= typeof values != 'undefined' ? values.email : '' %>" />
             </article>
             <article class="form__item1">
                 <label for="password" class="form__text">Contraseña:</label>
-                <input class="form__input" type="password" id="password" name="password" />
+                <input class="form__input" type="password" id="password" name="password" required />
             </article>
             <article class="form__item2">
                 <label for="password_confirm" class="form__text">Repita Contraseña:</label>
-                <input class="form__input" type="password" id="password_confirm" name="password_confirm" />
+                <input class="form__input" type="password" id="password_confirm" name="password_confirm" required />
             </article>
             <article class="form__item3">
                 <button type="submit" class="form__button">Registrar</button>

@@ -35,12 +35,12 @@ app.use(
 );
 
 // CHEQUEAR SI LA SESION ESTA INICIADA
-const isLogin = (req, res, next) => {
-    if(!req.session.userId){
-        return res.redirect('/login');
-    }
-    next();
-}
+//const isLogin = (req, res, next) => {
+//    if(!req.session.userId){
+//        return res.redirect('/login');
+//    }
+//    next();
+//}
 
 // PUBLIC FILES
 app.use(express.static(path.join(__dirname, "/public")));
@@ -65,7 +65,7 @@ const { log } = require("console");
 
 app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
-app.use("/admin/productos", isLogin, productRoutes);
+app.use("/admin/productos", productRoutes);
 app.use("/admin", authRoutes);
 
 // ERROR 404

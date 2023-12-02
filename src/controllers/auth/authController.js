@@ -50,7 +50,8 @@ const authController = {
         const errors = validationResult(req);
 
         if(!errors.isEmpty()) {
-            return res.render('register', {
+            res.send('registrado');
+            return res.render('login', {
                 values: req.body,
                 errors: errors.array(),
             });

@@ -34,7 +34,7 @@ router.get("/", productController.admin);
 router.get("/create", productController.create);
 //         ruta        multer              validator         controlador
 router.post("/", upload.single("imagen"), validations, productController.store);
-router.get("/edit/:id", productController.edit);
+router.get("/edit", productController.edit);
 router.put("/edit/:id", upload.single("imagen"), validations, productController.update);
 router.delete("/delete/:id", productController.destroy);
 
