@@ -9,11 +9,19 @@
 <body>
     <header>
         <nav class="navbar conteiner">
+            
             <picture class="navbar__logo">
                <a href="../index.html">
                  <img src="../image/branding/logo_light_horizontal.svg" alt="LOGO de la pagina">
                </a>
             </picture>
+
+            <label for="menu" class="nav__label"> <!-- codigo menu responsive del header-->
+                <iconify-icon icon="mingcute:menu-fill"  width="26" height="26"></iconify-icon>
+            </label>
+            <input type="checkbox" id="menu" class="nav__input">
+
+
             <div class="navbar__menu">
                 <div class="with-submenu">
                   <a class="navbar__link with-icon" href="">SHOP <iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
@@ -27,20 +35,26 @@
                     <li class="submenu__item">
                         <a class="submenu__link" href="">Llaveros</a>
                     </li>
-                    
                   </ul>
                 </div>
                 <a class="navbar__link" href="">CONTACTO</a>
                 <a class="navbar__link" href="">LOGIN</a>
                 <a class="navbar__cart" href="">
-                    <img src=".../image/icons/cart-icon.svg" alt="">
+                    <img src="../image/icons/cart-icon.svg" alt="">
                 </a>
             </div>
-        </nav>
+            
+        </nav> 
     </header>
     <main class="main conteiner">
         
+        <aside>
+            <label for="menu-filtrar" class="filtrar__label"> <!-- codigo menu filtrar reponsive -->
+                FILTRAR
+            </label>
+            <input type="checkbox" id="menu-filtrar" class="filtrar__input">
             <form action="" class="aside-conteiner">
+                
                 <div class="aside-conteiner__buscar">
                    <p class="aside-conteiner__titulo">BUSCAR</p>
                    <input type="search" placeholder="item o categoria" class="aside-conteiner__buscar__barra">
@@ -82,7 +96,7 @@
                         <p>EDICIÓN ESPECIAL</p>
                     </div>
                     <div class="aside-conteiner___filtrar__par">
-                        <input type="checkbox" class="inp">
+                        <input type="checkbox">
                         <p>FAVORITOS</p>
                     </div>
                 </div>
@@ -270,6 +284,7 @@
         <p class="footer__copy">All rights reserved 2023 - Funkoshop</p>
     </footer>
 
+    
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
-</html>
+</html>           

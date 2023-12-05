@@ -122,7 +122,7 @@ header{
 }
 
 .navbar__logo{
-    max-width: 300px;
+    max-width: 30rem;
 }
 
 .navbar__link{
@@ -139,6 +139,9 @@ header{
     gap: var(--espacio-8);
 }
 
+
+
+
 .navbar__link:hover{
     background-color: var(--primer-color-900);
 }
@@ -149,6 +152,7 @@ header{
     width: 300px;
     position: absolute;
     background-color: var(--oscuro-bg-solid);
+    
 }
 
 .submenu__link {
@@ -165,6 +169,10 @@ header{
 .with-submenu:hover .submenu{
     display: block;
 
+}
+
+.nav__label, .nav__input{  /* codigo para el menu reponsive*/
+    display: none;
 }
 
 /*________________________________FOOTER__________________________*/
@@ -193,20 +201,25 @@ header{
 .main{
     display: flex;
    margin-top: var(--espacio-128);
-
-   flex-direction: row; /* Asegura que los elementos secundarios estén uno al lado del otro */
+   flex-direction: row;
     width: 100%;
+
+    
+    
     
 
 }
 /*-----------ASIDE-----------*/
+
 .aside-conteiner{
     height: fit-content;
-   
+    
+    
 }
 .aside-conteiner__titulo{
     color: #111111;
     font-size: var(--fuente-large);
+    font-weight: 500;
     margin-top: var(--espacio-16);
     margin-bottom: var(--espacio-12);
     
@@ -246,6 +259,8 @@ header{
     height: 4.4rem;
     border-radius: 6px;
     border: 2px solid var(--oscuro-bg-solid);
+
+    
 }
 
 
@@ -257,7 +272,7 @@ header{
     
 }
 
-.aside-conteiner__precio input {
+.aside-conteiner__precio input[type="number"] {
     width: 5.9rem;
     height: 2.7rem;
     font-size: var(--fuente-medium);
@@ -296,6 +311,11 @@ header{
     width: var(--espacio-24);
     height: var(--espacio-24);
     margin-right: var(--espacio-8);
+}
+
+
+.filtrar__label, .filtrar__input { /* codigo para el aside filtrar reponsive*/
+    display: none;
 }
 
 
@@ -485,10 +505,236 @@ header{
 
 
 
+/*_______________________________ MEDIAQUERY________________________*/
 
 
+@media (max-width:1200px){
+
+    /*___________HEADER_______*/
+    .navbar__logo{
+        width: 25rem;
+    }
+
+    .navbar__menu{
+        gap: var(--espacio-8);
+    }
+
+    .navbar__link{
+        font-size: var(--fuente-small);
+    }
+
+    /*_________MAIN__________*/
+
+    main{
+        margin-top: var(--espacio-68);
+        
+    }
+
+    .aside-conteiner{
+        padding-left: var(--espacio-36);
+        
+    }
+
+    .aside-conteiner__titulo{
+        font-size: var(--fuente-medium);
+
+    }
+    .aside-conteiner__buscar__barra, .aside-conteiner__orden__select{
+        width: 20rem;
+    }
+    
+    .aside-conteiner__precio input[type="number"] {
+        width: 5rem;
+    }
+
+    .aside-conteiner__precio__text, .aside-conteiner___filtrar__par p {
+        font-size: var(--fuente-xsmall);
+
+    }
+
+    
+    .card-item  {
+        width: 22rem;
+    }
+}
 
 
+@media (max-width:700px){
 
 
+    /*_____________NAAVBAR RESPONSIVE___________*/
 
+    .navbar__logo{
+        max-width: 20rem ;
+     }
+
+    .navbar__menu{
+        flex-direction: column;
+        gap: var(--espacio-36);
+        padding: 1.8rem;
+        background-color: #FF3333;
+        position: absolute;
+        left: 0;
+        top: 10.9rem;
+        width: 100%;
+        height: 0;
+        transition: all 300ms ease;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .nav__label{
+        display: block;
+        cursor: pointer;
+    }
+    
+    .nav__input:checked + .navbar__menu {
+        height: 30rem;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .submenu {
+        width: 100%;
+        background-color: var(--oscuro-bg-solid);
+        z-index: 1; 
+    }
+
+    /*___________MAIN (ASIDE RESPONSIVE)__________*/
+
+    .main{
+        flex-direction: column;
+        margin-top: 2em;
+    
+    }
+
+    
+    .aside-conteiner{
+        flex-direction: column;
+        background-color:  rgb(172, 172, 173) ;
+        position: absolute;
+        left: 2rem;
+        top: 15.4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        transition: all 300ms ease;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .aside-conteiner__titulo{
+        font-size: var(--fuente-medium);
+        font-weight: 600;
+        margin-top: var(--espacio-12);
+        margin-bottom: var(--espacio-8);
+        
+    }
+
+   
+    
+    .filtrar__label{
+        width: 0;
+        font-weight: 900;
+        margin-left: 3.4rem;
+        margin-bottom: 3rem;
+        display: flex;
+        flex-direction: column-reverse;
+        cursor: pointer;
+        color: var(--segundo-color-900);
+        font-size: var(--fuente-medium);
+        
+        
+    }
+
+    .filtrar__input:checked + .aside-conteiner {
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+    }
+/*____________MAIN (PRODUCTOS SHOPS)_______*/
+
+
+   .productos-shops {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: var(--espacio-12);
+    
+}
+
+    
+    
+}
+
+
+@media (max-width:600px){
+
+    /*__________MAIN (PRODUCTOS SHOPS)______________*/
+    
+    .card-item {
+        flex: 1 1 calc(30.4rem - var(--espacio-16));  
+    }
+    .card-item__descripcion{
+        display: flex;
+        flex-direction: column;
+        gap: var(--espacio-12);
+    }
+    
+    .card-item__link{
+        display: flex;
+        flex-wrap: nowrap;
+        height: 19rem;
+        
+    }
+
+    .card-item img {
+        width: 15rem;
+        height: 15rem;
+        
+    }
+    
+    .card-item__nombre{
+    font-size: var(--fuente-small);
+    }
+
+    .card-item__promo{
+        font-size: 1.1em;
+    }
+
+    .pagination__item{
+        font-size: 1.1em;
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+    /*____________PAGINATION___________*/
+
+    .pagination__item-active{
+        font-size: 1.1em;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .pagination__item-back{
+        font-size: 1.1em;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    /*_____________FOOTER____________*/
+
+    .footer{
+        padding-left: var(--espacio-36);
+        padding-right: var(--espacio-36);
+        }
+
+    .footer img{
+        width: 10rem;
+    }
+    .navbar-footer__link a{
+        font-size: var(--fuente-xsmall);
+    }
+}
