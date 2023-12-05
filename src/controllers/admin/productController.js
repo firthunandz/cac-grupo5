@@ -61,19 +61,20 @@ const productController = {
         }
     },
     edit: async (req, res) => {
-        try {
-            const producto = await model.findByPk(req.params.id);
+        // try {
+        //     const producto = await model.findByPk(req.params.id);
 
-            if(producto){
-                res.render("edit", {values: producto});
-            } else {
-                res.status(404).send('El producto no existe');
-            }
+        //     if(producto){
+        //         res.render("edit", {values: producto});
+        //     } else {
+        //         res.status(404).send('El producto no existe');
+        //     }
 
-        } catch (error) {
-            console.log(error);
-            res.status(500).send(error);
-        }
+        // } catch (error) {
+        //     console.log(error);
+        //     res.status(500).send(error);
+        // }
+        res.render('edit');
     },
     update: async (req, res) => {
         console.log(req.params, req.body);
