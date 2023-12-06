@@ -27,9 +27,9 @@ User.beforeSave(async (user, options) => {
 });
 
 // Si no existe la BD la crea.
-(async () => {
-    await sequelize.sync();
-})();
+// (async () => {
+//     await sequelize.sync();
+// })();
 
 // Exportar modulo
 module.exports = User;

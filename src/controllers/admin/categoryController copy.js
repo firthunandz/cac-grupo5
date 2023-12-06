@@ -1,24 +1,15 @@
-const fs = require('fs');
-
-// Requerir Path
-const path = require('path');
-
-// Requerir Sharp
-const sharp = require('sharp');
-
 // Requerir express-validator
 const {validationResult} = require('express-validator');
 
-// Requerir modelo Producto
-const model = require('../../models/Product');
+// Requerir modelo categoria
+const model = require('../../models/Category');
 
-const productController = {
-    //admin: (req, res) => res.render("admin", { layout: 'layouts/adminLayout'}),
+const categoryController = {
     admin: async (req, res) => {
         try {
-            const productos = await model.findAll();
-            console.log(productos);
-            res.render('admin', {productos});
+            const categorias = await model.findAll();
+            console.log(categorias);
+            res.render('admin', {categorias});
         } catch (error) {
             console.log(error);
             res.status(500).send(error);
@@ -38,19 +29,8 @@ const productController = {
         }
 
         try {
-            const producto = await model.create(req.body);
-            console.log(producto);
-
-            // Subir la imagen solo si el producto esta creado.
-            if(producto && req.file){
-                sharp(req.file.buffer)
-                    .resize()
-                    .toFile(path.resolve(
-                        __dirname,
-                        `../../../public/uploads/productos/producto_${producto.id}.jpg`
-                        )
-                    );
-            }
+            const categoria = await model.create(req.body);
+            console.log(categoria);
 
             //redireccionar a la lista de productos
             res.redirect('/admin/productos')
@@ -62,12 +42,12 @@ const productController = {
     },
     edit: async (req, res) => {
         try {
-            const producto = await model.findByPk(req.params.id);
+            const categoria = await model.findByPk(req.params.id);
 
-            if(producto){
-                res.render("edit", {values: producto});
+            if(categoria){
+                res.render("edit", {values: categoria});
             } else {
-                res.status(404).send('El producto no existe');
+                res.status(404).send('El categoria no existe');
             }
 
         } catch (error) {
@@ -94,20 +74,9 @@ const productController = {
             });
 
             if (affected[0] == 1){
-                if(producto && req.file){
-                    sharp(req.file.buffer)
-                        .resize()
-                        .toFile(path.resolve(
-                            __dirname,
-                            `../../../public/uploads/productos/producto_${req.params.id}.jpg`
-                            )
-                        );
-                }
-
-            res.redirect('admin');
-
+                res.redirect('admin');
             } else {
-                res.status(500).send('Error al actualizar el producto');
+                res.status(500).send('Error al actualizar el categoria');
             }
 
         } catch (error) {
@@ -122,19 +91,6 @@ const productController = {
                     id: req.params.id,
                 }
             });
-            console.log(result);
-
-            if(result == 1){
-                fs.unlink(path.resolve(
-                    __dirname,
-                    `../../../public/uploads/productos/producto_${req.params.id}.jpg`)
-                ),
-                (error) => {
-                    if(error){
-                        console.log(error);
-                    }
-                }
-            }
             res.redirect('admin');
         } catch (error) {
             console.log(error);
@@ -143,4 +99,4 @@ const productController = {
     }
 };
 // Exportar modulo controlador de productos
-module.exports = productController;
+module.exports = categoryController;

@@ -65,7 +65,8 @@ const { log } = require("console");
 
 app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
-app.use("/admin/productos", productRoutes);
+app.use("/admin/productos", isLogin, productRoutes);
+app.use("/admin/categorias", isLogin, categoryRoutes);
 app.use("/admin", authRoutes);
 
 // ERROR 404
@@ -77,7 +78,7 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
     try {
-        await sequelize.authenticate();
+        await sequelize.sync();
     } catch (error) {
         console.log(error);
     }
